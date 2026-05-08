@@ -1,8 +1,8 @@
 # Concrete Slump and Strength Prediction
 
-Machine learning project for predicting concrete workability and compressive strength using concrete mix composition data.
+Machine learning project for predicting concrete workability and compressive strength using concrete mix composition data and regression modeling techniques.
 
-This project applies regression models and neural network techniques to analyze how cement, slag, fly ash, water, superplasticizer, aggregates, slump, and flow influence concrete performance.
+This project applies neural networks and ensemble machine learning models to analyze how cement, slag, fly ash, water, aggregates, and admixtures influence concrete performance and slump behavior.
 
 ---
 
@@ -14,7 +14,7 @@ This project applies regression models and neural network techniques to analyze 
 
 # Project Overview
 
-Concrete quality depends heavily on mix composition and workability. Traditional concrete testing can be time-consuming, so this project explores machine learning as a faster data-driven method for estimating concrete slump and compressive strength.
+Concrete quality and workability depend heavily on material composition and environmental factors. Traditional concrete testing can be time-consuming and resource-intensive, so this project explores machine learning as a faster predictive approach for estimating concrete slump behavior and compressive strength.
 
 The workflow includes:
 
@@ -23,15 +23,15 @@ The workflow includes:
 - correlation analysis
 - visualization
 - regression modeling
-- neural network training
+- neural network experimentation
 - ensemble model comparison
-- model evaluation using RMSE, MAE, and R²
+- model evaluation
 
 ---
 
 # Dataset
 
-The dataset contains concrete mix design and performance attributes, including:
+The dataset contains concrete mix design and performance attributes including:
 
 - Cement
 - Slag
@@ -44,7 +44,11 @@ The dataset contains concrete mix design and performance attributes, including:
 - Flow
 - 28-day compressive strength
 
-Dataset size: `103 rows × 10 columns`
+Dataset size:
+
+```text
+103 rows × 10 columns
+```
 
 ---
 
@@ -55,47 +59,55 @@ concrete-slump-strength-prediction/
 ├── data/
 │   └── cement_slump.csv
 ├── notebooks/
-│   ├── 01_mlp_modeling.ipynb
-│   └── 02_model_comparison.ipynb
+│   ├── 01_mlp_modeling.py
+│   └── 02_model_comparison.py
 ├── README.md
 └── requirements.txt
 ```
 
 ---
 
-# Notebooks
+# Project Workflows
 
-## 01_mlp_modeling.ipynb
+## 1. MLP Modeling Pipeline
 
-Focused notebook for:
+`01_mlp_modeling.py`
+
+This workflow focuses on:
 
 - exploratory data analysis
 - correlation heatmaps
-- distribution plots
-- boxplots
-- scatterplots
-- MLP regression modeling
-- model evaluation
+- boxplots and distributions
+- neural network regression
+- model evaluation using regression metrics
 
-## 02_model_comparison.ipynb
+The primary model used is:
 
-Broader experimentation notebook covering:
+- Multi-Layer Perceptron Regressor (MLPRegressor)
+
+---
+
+## 2. Model Comparison Pipeline
+
+`02_model_comparison.py`
+
+This workflow expands the experimentation process and includes:
 
 - preprocessing
-- EDA
-- model training
+- regression modeling
 - ensemble methods
-- LightGBM / XGBoost experimentation
-- model comparison
+- XGBoost experimentation
+- LightGBM experimentation
+- comparative model evaluation
 
 ---
 
 # Models Used
 
-- MLP Regressor
-- XGBoost
-- LightGBM
-- Regression-based model comparison workflows
+- Multi-Layer Perceptron (MLP)
+- XGBoost Regressor
+- LightGBM Regressor
+- Regression-based comparison workflows
 
 ---
 
@@ -103,9 +115,22 @@ Broader experimentation notebook covering:
 
 Models were evaluated using:
 
-- RMSE
-- MAE
+- RMSE (Root Mean Squared Error)
+- MAE (Mean Absolute Error)
 - R² Score
+
+---
+
+# Key Learning Outcomes
+
+This project demonstrates how machine learning can support construction and material engineering workflows through predictive analytics.
+
+Key observations include:
+
+- material composition strongly influences slump behavior
+- ensemble methods improve predictive stability
+- neural networks effectively capture nonlinear relationships
+- preprocessing and feature analysis significantly affect model accuracy
 
 ---
 
@@ -115,21 +140,48 @@ Models were evaluated using:
 - Neural networks
 - Ensemble learning
 - Engineering analytics
-- Feature analysis
+- Feature engineering
 - Data preprocessing
-- Exploratory data analysis
-- Model evaluation
+- Exploratory data analysis (EDA)
+- Predictive modeling
 
 ---
 
-# Key Learning
+# Installation
 
-This project shows how machine learning can support construction material analysis by predicting concrete behavior from mix composition data. Ensemble models and neural networks can help identify important factors influencing workability and strength.
+Clone the repository:
+
+```bash
+git clone https://github.com/Tanmai019/concrete-slump-strength-prediction.git
+cd concrete-slump-strength-prediction
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Running The Project
+
+Run the MLP workflow:
+
+```bash
+python notebooks/01_mlp_modeling.py
+```
+
+Run the model comparison workflow:
+
+```bash
+python notebooks/02_model_comparison.py
+```
 
 ---
 
 # Notes
 
-- This is a lightweight portfolio version of an academic machine learning project.
-- The repository contains cleaned notebooks and dataset files for reproducibility.
-- The project is intended for learning, experimentation, and portfolio demonstration.
+- This repository contains cleaned Python workflows adapted from academic machine learning experimentation.
+- Large generated artifacts and temporary files were excluded for repository optimization.
+- The project is intended for learning, experimentation, and portfolio demonstration purposes.
